@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content  %}
-<div class="container">
+<div class="container pageContentWrapper">
     <div class='row'>
         <div class="col-md-8 mt-2">
             
@@ -19,7 +19,11 @@
         </div>
         <div class="col-md-4  mb-2  mt-3">
             <h2 class="">Recommandations:</h2>
-            {% if others %}
+            {% if others  %}
+             {% if others|length == 1 %}
+                <h5 class="mt-5 text-center"> Aucun article à recommander pour votre choix</h5>
+             {% else %}
+             
                 <div class="row">
                     {% for a in others %}
                         {% if article.id != a.id %}
@@ -46,6 +50,8 @@
                         {% endif %}
                     {% endfor %}
                 </div>
+
+                {% endif %}
                 
             {% endif %}
             
