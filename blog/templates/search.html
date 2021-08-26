@@ -1,11 +1,11 @@
 {% extends 'base.html' %}
 
-  {% block content %}
 
+{% block content %}
     <div class="container">
-      <!-- Start your project here-->
-      <h1 class="text-center mt-3">Bienvenu dans mon parking:</h1>
-      <div class="btn btn-success">Info</div>
+         <!-- Start your project here-->
+      <h1 class="text-center mt-3">Liste des articles liés à votre recherche:</h1>
+      <h5 class="pl-5 mb-3">Critère de recherche: <strong>{{query}}</strong></h5>
 
       <div class="row">
         {% for article in list %}
@@ -41,15 +41,16 @@
                 Publié il y a {{article.created_at | timesince}}
               </p>
               <!-- Button -->
-              <a  href="{% url 'details' article.id %}" class="btn btn-primary"><i class="far fa-eye"></i>Voir les Details</a>
+              <a  href="{% url 'details' article.id %}" class="btn btn-primary"><i class="far fa-eye"></i> Details</a>
               <!-- ou comme ça: <a  href="/article/{{article.id}}" class="btn btn-primary">Button</a> -->
             </div>
           </div>
           </div>
         {% endfor %}
       </div>
-    </div>
- 
 
-  {% endblock %}
- 
+
+
+    </div>
+{% endblock  %}
+

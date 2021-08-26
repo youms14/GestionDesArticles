@@ -18,3 +18,8 @@ def details(request, id):
         "others": others
     }
     return render(request,"details.html",context)
+
+def search (request):
+    query=request.GET["article"]# GET={"article":"voiture"}: GET est un dictionnaire dont les clés sont les names des formulaires et les valeurs sont les saisies.  
+    liste_articles=Article.objects.filter(title__icontains=query)
+    return render(request,"search.html",{"list":liste_articles,"query":query})
