@@ -31,12 +31,12 @@
         <link rel="stylesheet" href="{% static 'myownstyle.css' %}"
       </head>
 <body>
- {% include "_nav.html" %}
+
 
 {% block content %}
 {% endblock %}
 
-{% include '_footer.html' %}
+
 <!-- end code -->
     <!-- jQuery -->
     <script
@@ -57,5 +57,9 @@
     <script type="text/javascript" src="{% static 'js/mdb.min.js' %}"></script>
     <!-- Your custom scripts (optional) -->
     <script type="text/javascript"></script>
+
+
+    {% block scripts %}
+    {% endblock %}
 </body>
 <html>

@@ -30,4 +30,5 @@ urlpatterns = [
     path('', home, name= "home"), #path('', include("blog.urls")),
     path('article/<int:id>', details, name="details"),
     path('recherche', search, name="search"),
+    path('auth/', include("app_auth.urls")),
 ]+static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
