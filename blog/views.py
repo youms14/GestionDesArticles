@@ -6,7 +6,8 @@ from blog.models import Article, Categorie
 # view c'est où on écrit la logique
 #request=requete http
 def home (request):
-    liste_articles=Article.objects.all()
+    liste_articles=Article.objects.all().order_by("-created_at")
+    print(liste_articles)
     return render(request,"index.html", { "list":liste_articles})
 
 def details(request, id):

@@ -31,4 +31,5 @@ urlpatterns = [
     path('article/<int:id>', details, name="details"),
     path('recherche', search, name="search"),
     path('auth/', include("app_auth.urls")),
+    path('app-admin/', include("app_admin.urls")),
 ]+static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)

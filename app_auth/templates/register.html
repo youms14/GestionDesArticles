@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+
+
+
+{% block title %}Création utilisateur{% endblock %} 
+
+{%block content %}
+<h1 class="text-center mt-5">Création de compte Utilisateur</h1>
+<div class="container">
+    {% if msg %}
+        <div class="alert alert-danger text-center" role="alert" style="font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; font-weight: 700">
+            {{msg}}
+        </div>
+        <!--        
+        <div>
+            <small class="text-danger" style="font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; font-weight: 700">{{msg}}</small>
+        </div>
+         --> 
+
+    {% endif %}
+    <form action="" method="POST"> {% csrf_token %}
+        <label for="id_username">Nom Utilisateur</label>
+        {{form.username}}
+
+        <label for="id_email">Email</label>
+        {{form.email}}
+
+        <br>
+        <label for="id_pwd">Mot de Passe</label>
+        {{form.pwd}}
+
+        <br>
+        <label for="id_pwd_confirm">Confirmation de Mot de Passe</label>
+        {{form.pwd_confirm}}
+
+        <br>
+        <button class="btn btn-primary btn-block mb-5"><i class="fas fa-user-plus"></i>&nbsp; Créer</button>
+    </form>
+</div>
+{% endblock %}
+
+{% block scripts %}
+    <script>
+        $(document).ready(function(){
+            $('input').keyup(function(){
+                let textSaisi= $(this).val();
+                if(textSaisi === ""){
+                    if(!$(this).hasClass('is-invalid')){
+                        $(this).addClass('is-invalid')
+                    }
+                }else{
+                    $(this).removeClass('is-invalid');
+                }
+                
+            })
+        })
+    </script>
+{% endblock %}

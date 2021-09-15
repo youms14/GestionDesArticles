@@ -11,7 +11,11 @@
                     <div class="alert alert-danger text-center"><strong>{{message}}</strong></div>
                 {% endfor %}
             {% endif %}
-
+            {% if msg %}
+            <div class="alert alert-success" role="alert">
+                {{msg}}
+              </div>
+            {% endif %}
             <form action="" method="POST" novalidate>{% csrf_token %}
                 <div class="card">
                     <div class="card-header text-center"><i class="fas fa-user"></i>Connexion au blog </div>
@@ -39,6 +43,10 @@
                         <button class="btn btn-primary btn-block">Se connecter</button>
                     </div>
                 </div>
+                <div class="text-center">
+                    Vous n'avez pas encore de compte? <a href={% url 'register' %}>Créer Votre Compte</a>
+                </div>
+                
             </form>
         </div>
     </div>

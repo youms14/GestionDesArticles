@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'blog',
     'app_auth', 
+    'app_admin'
      #'django_extensions',
 ]
 
@@ -142,3 +143,7 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 #STATIC_ROOT = os.path.join(BASE_DIR,'staticfiles')
 
 #STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+LOGIN_URL="/auth/login" #ici on met le chemin de l'application login
+
+"""ce qui permet la redirection des utilisateurs non authentifiés"""

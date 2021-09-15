@@ -5,7 +5,7 @@
     <div class="container">
       <!-- Start your project here-->
       <h1 class="text-center mt-3">Bienvenu dans mon parking:</h1>
-      <div class="btn btn-success">Info</div>
+      
 
       <div class="row">
         {% for article in list %}
@@ -14,6 +14,7 @@
 
           <div class="card  classcard p-2">
             <!-- Card image -->
+            {% if article.image %}
             {% if article.image == "http://default" %}
               <a href="{% url 'details' article.id %}"><img
               class="card-img-top classimg"
@@ -26,6 +27,14 @@
               src="{{article.image.url}} "
               alt="Card image cap" 
             /></a>
+            {% endif %}
+            {% else%}
+            <a href="{% url 'details' article.id %}"><img
+              class="card-img-top classimg"
+              src="https://via.placeholder.com/150"
+              alt="Card image cap" 
+            /></a>
+
             {% endif %}
             
 
